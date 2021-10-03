@@ -61,7 +61,7 @@ jobs:
           
       - name: Run tests
         run: |
-          pytest --cov=./ --cov-report=xml ./test
+          pytest --cov=./ --cov-report=xml ./tests
           
       - name: Hello World
         run: |
