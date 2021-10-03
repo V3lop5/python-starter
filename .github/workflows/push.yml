@@ -35,7 +35,7 @@ jobs:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
      
-     
+  # Checks if all tests pass   
   test:
     runs-on: ubuntu-latest
     steps:
@@ -52,7 +52,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: ${{ hashFiles('setup.py') }}-${{ hashFiles('requirements**.txt') }}
+          key: test-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements**.txt') }}
           
       - name: Install requirements
         run: |
@@ -62,10 +62,49 @@ jobs:
       - name: Run tests
         run: |
           pytest --cov=./ --cov-report=xml ./tests
+                
+            
+      - name: Upload tests results
+        uses: actions/upload-artifact@v2
+        with:
+          name: test-results
+          path: coverage.xml
           
-      - name: Hello World
+      # linting flake8
+    
+    
+  # Test if project still runs on every os          
+  test_build:
+    needs: test
+    runs-on: ${{ matrix.os }}
+    name: Test build Python ${{ matrix.py }} on ${{ matrix.os }}
+    matrix:
+      os: ["ubuntu-latest", "windows-latest", "macos-latest"]
+      py: ["3.7", "3.8", "3.9"]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.4
+        
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x' 
+          architecture: 'x64' 
+                
+      - name: Cache pip
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache/pip
+          key: test-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements**.txt') }}
+          
+      - name: Install requirements
         run: |
-          echo "Hello World!"
+          pip install --upgrade --upgrade-strategy eager -r requirements-dev.txt -e .
+            
           
-      # TODO Upload report
-      # TODO Comment on PRs I guess    
+      - name: Run tests
+        run: |
+          pytest ./tests
+        
+  # TODO If head of main -> Upload Code Coverage
+  # TODO If head of main -> Deploy dev
