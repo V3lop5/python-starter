@@ -1,0 +1,3 @@
+# Requirements for package_name
+
+numpy

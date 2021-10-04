@@ -1,0 +1,5 @@
+# Requirements for package_name
+-r requirements.txt
+
+# Dev dependencies for package_name
+pytest
