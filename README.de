@@ -1,19 +1,45 @@
 # Python Starter Repo
 This repo helps you to kickstart your Python project. 
 
-Features
-- Pre configured Python 3.7 project
+## Features
+
+### Repository
 - README.md with recommended structure
-- Generate CHANGELOG based on pull request titles
-- Multiple pre defined Workflows
-  - Test on Push
-  - Deploy Pull Requests to Preview
-  - Remove Preview deployment on PR close or merge
-  - Deploy latest `main` to Dev
-  - Deploy latest release to Prod
-  - Regenerate docs on release
-- Templates for Issued and Pull Requests
-— Publish docs to github pages
+- Issue templates
+- Pull Request template
+- Release-Changelog template
+- Github pages integration for Docs
+
+### Python project
+- Python 3.7, 3.8, 3.9 supported
+- Recommended project structure
+- Tests with `pytest` 
+- Linting with `flake8` 
+
+### CI/CD
+- Automated tests and linting
+- Publish test results, linting and code coverage
+- Annotations in pull requests
+- Automated deployments
+  - Latest release -> Production
+  - Latest main branch -> Development
+  - Any pull request -> Preview
+- Release-Changelog based on pull requests  
+- Regenerate docs on release
+- Publish docs to github pages  
+
+## Start YOUR python project with this template
+TODO
 
 ## Use this template
-TODO
+
+### Workflow with git
+Rule #1: No Commits to main!
+
+Every feature or fix should be developed on branches for example `feature/new-rest-api` or `fix/status-500-on-empty-request`.
+
+If a branch is ready for review a pull request can be opened. Tests and Linting are automated and report their results after a few seconds within the pull request. If tests and Linting passed a build is deployed to a preview env. This can easily be reviewed.
+
+After approval the pull request is merged into main branch. From this branch a build is deployed to the dev env. All team members can use this working version of the project for their developments.
+
+When all features are ready and merged into main a new release can be created within github. A changelog containing all pull requests is generated. In background by GitHub actions all assets for this release are generated and the docs are updated.
