@@ -1,7 +1,9 @@
-name: Push
+name: CI/CD main
 
 on:
   push:
+    branches:
+      - main
   
 jobs:
   # Inspect the information that is accessible in each context
@@ -106,8 +108,8 @@ jobs:
   uplaod_coverage_results:
     needs: test 
     runs-on: ubuntu-latest
-    name: "Upload code coverage @ main"
-    if: github.ref == 'refs/heads/main' && always()
+    name: "Upload code coverage"
+    if: always()
     steps:
       - name: Download tests results
         uses: actions/download-artifact@v2
@@ -123,8 +125,8 @@ jobs:
   publish_test_results:
     needs: test
     runs-on: ubuntu-latest
-    name: "Publish unit test results @ main"
-    if: github.ref == 'refs/heads/main' && always()
+    name: "Publish unit test results"
+    if: always()
     steps:
       - name: Download tests results
         uses: actions/download-artifact@v2
@@ -178,8 +180,7 @@ jobs:
   dev_deploy:
     needs: [test, lint, test_build] 
     runs-on: ubuntu-latest
-    name: "Dev deploy @ main"
-    if: github.ref == 'refs/heads/main'
+    name: "Dev deploy"
     steps:
       - name: Hello
         run: |
