@@ -1,7 +1,7 @@
-name: Push
+name: Pull Request
 
 on:
-  push:
+  pull_request:
   
 jobs:
   # Inspect the information that is accessible in each context
@@ -90,41 +90,21 @@ jobs:
           
       - name: Run tests
         run: |
-          pytest --cov=./ --cov-report=xml --junitxml="result.xml" ./tests
+          pytest --cov=./ --cov-report=xml ./tests
                 
             
       - name: Upload tests results
         uses: actions/upload-artifact@v2
-        if: always()
         with:
           name: test-results
-          path: |
-            coverage.xml
-            result.xml
+          path: coverage.xml
           
-    
-  uplaod_coverage_results:
-    needs: test 
-    runs-on: ubuntu-latest
-    name: "Upload code coverage @ main"
-    if: github.ref == 'refs/heads/main' && always()
-    steps:
-      - name: Download tests results
-        uses: actions/download-artifact@v2
-        with:
-          name: test-results
-          
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          file: ./coverage.xml
-          flags: unittests
   
   publish_test_results:
     needs: test
     runs-on: ubuntu-latest
     name: "Publish unit test results @ main"
-    if: github.ref == 'refs/heads/main' && always()
+    if: always()
     steps:
       - name: Download tests results
         uses: actions/download-artifact@v2
@@ -135,51 +115,14 @@ jobs:
         uses: EnricoMi/publish-unit-test-result-action@v1
         with:
           files: result.xml
-          report_individual_runs: true
-          
-    
-    
-  # Test if project still runs on every os          
-  test_build:
-    needs: [test, lint]
-    runs-on: ${{ matrix.os }}
-    name: Build with ${{ matrix.py }} @ ${{ matrix.os }}
-    strategy:
-      fail-fast: true
-      matrix:
-        os: ["ubuntu-latest", "windows-latest", "macos-latest"]
-        py: ["3.7", "3.8", "3.9"]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2.3.4
-        
-      - name: Setup Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.x' 
-          architecture: 'x64' 
-                
-      - name: Cache pip
-        uses: actions/cache@v2
-        with:
-          path: ~/.cache/pip
-          key: ${{matrix.os}}-${{ matrix.py }}-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements**.txt') }}
-          
-      - name: Install requirements
-        run: |
-          pip install --upgrade --upgrade-strategy eager -r requirements-dev.txt -e .
-            
-          
-      - name: Run tests
-        run: |
-          pytest ./tests
+          report_individual_runs: true  
+          comment_mode: "create new"
         
         
-  dev_deploy:
+  preview_deploy:
     needs: [test, lint, test_build] 
     runs-on: ubuntu-latest
-    name: "Dev deploy @ main"
-    if: github.ref == 'refs/heads/main'
+    name: "Preview deploy"
     steps:
       - name: Hello
         run: |
