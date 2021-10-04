@@ -121,7 +121,7 @@ jobs:
         
         
   preview_deploy:
-    needs: [test, lint, test_build] 
+    needs: [test, lint] 
     runs-on: ubuntu-latest
     name: "Preview deploy"
     steps:
