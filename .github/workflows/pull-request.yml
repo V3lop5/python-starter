@@ -98,7 +98,9 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: test-results
-          path: coverage.xml
+          path: |
+            coverage.xml
+            result.xml
           
   
   publish_test_results:
