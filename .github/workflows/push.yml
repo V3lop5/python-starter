@@ -72,6 +72,22 @@ jobs:
           
       # linting flake8
     
+  uplaod_test_results:
+    needs: test 
+    runs-on: ubuntu-latest
+    name: "Upload test results @ main"
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Download tests results
+        uses: actions/download-artifact@v2
+        with:
+          name: test-results
+          
+      - name: Upload coverage to Codecov
+          uses: codecov/codecov-action@v1
+          with:
+            file: ./coverage.xml
+            flags: unittests
     
   # Test if project still runs on every os          
   test_build:
