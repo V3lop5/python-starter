@@ -52,7 +52,7 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.cache/pip
-          key: test-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements**.txt') }}
+          key: lint-${{ hashFiles('setup.py') }}-${{ hashFiles('requirements**.txt') }}
           
       - name: Install requirements
         run: |
@@ -160,7 +160,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: Hello
-        runs: |
+        run: |
           echo "Hello World!"
             
         
