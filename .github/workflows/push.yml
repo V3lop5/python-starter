@@ -84,10 +84,10 @@ jobs:
           name: test-results
           
       - name: Upload coverage to Codecov
-          uses: codecov/codecov-action@v1
-          with:
-            file: ./coverage.xml
-            flags: unittests
+        uses: codecov/codecov-action@v1
+        with:
+          file: ./coverage.xml
+          flags: unittests
     
   # Test if project still runs on every os          
   test_build:
