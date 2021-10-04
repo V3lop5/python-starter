@@ -2,6 +2,7 @@ name: Pull Request
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened]
   
 jobs:
   # Inspect the information that is accessible in each context
