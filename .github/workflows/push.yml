@@ -99,7 +99,6 @@ jobs:
           name: test-results
           path: coverage.xml
           
-      # linting flake8
     
   uplaod_test_results:
     needs: test 
@@ -153,5 +152,15 @@ jobs:
         run: |
           pytest ./tests
         
-  # TODO If head of main -> Upload Code Coverage
-  # TODO If head of main -> Deploy dev
+        
+  dev_deploy:
+    needs: [test, lint, test_build] 
+    runs-on: ubuntu-latest
+    name: "Dev deploy @ main"
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Hello
+        runs: |
+          echo "Hello World!"
+            
+        
