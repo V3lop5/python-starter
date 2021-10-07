@@ -1,12 +1,12 @@
 import pytest
-from package_name import StarterExample
+from bigfoot import FootExample
 
 @pytest.fixture
 def app():
     """
     Instance of your application
     """
-    return StarterExample()
+    return FootExample()
     
     
 def test_text(app):

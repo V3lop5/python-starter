@@ -3,7 +3,7 @@ Short example of an application
 
 """
 
-class StarterExample(object):
+class FootExample(object):
     def __init__(self):
       self.text = "Hello World!"
       

@@ -1,5 +1,5 @@
-# Requirements for package_name
+# Requirements for Bigfoot
 -r requirements.txt
 
-# Dev dependencies for package_name
+# Dev dependencies for Bigfoot
 pytest
