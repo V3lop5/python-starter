@@ -12,7 +12,7 @@ Features
   - Deploy latest `main` to Dev
   - Deploy latest release to Prod
   - Regenerate docs on release
-- Templates for Issued and Pull Requests
+- Templates for Issues and Pull Requests
 — Publish docs to github pages
 
 ## Use this template
