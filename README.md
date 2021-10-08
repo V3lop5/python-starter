@@ -2,9 +2,9 @@
 This repo helps you to kickstart your Python project. 
 
 Features
-- Pre configured Python 3.7 project
+- Pre configured Python 3.7+ project
 - README.md with recommended structure
-- Generate CHANGELOG based on pull request titles
+- Generate CHANGELOG based on pull request titles and labels
 - Multiple pre defined Workflows
   - Test on Push
   - Deploy Pull Requests to Preview
