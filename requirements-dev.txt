@@ -2,4 +2,4 @@
 -r requirements.txt
 
 # Dev dependencies for Bigfoot
-pytest
+pytest~=6.2.5
