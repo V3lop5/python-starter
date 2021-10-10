@@ -1,10 +1,11 @@
 Fixes #<!--- issue-number -->
 
-## This PR ....
+### This PR ...
 <!--- Short summary what this PR changed. -->
 
+-----
 
-## Checklist
+### Checklist
 <!--- Mark the completed tasks by inserting a X inside the brackets. Like [X] -->
 
 Checklist for Contributors
