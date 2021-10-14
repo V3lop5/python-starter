@@ -1,4 +1,4 @@
-name: Pull Request
+name: CI/CD Pull Requests
 
 on:
   pull_request:
@@ -106,7 +106,7 @@ jobs:
   publish_test_results:
     needs: test
     runs-on: ubuntu-latest
-    name: "Publish unit test results @ main"
+    name: "Publish unit test results"
     if: always()
     steps:
       - name: Download tests results

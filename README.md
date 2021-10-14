@@ -11,7 +11,7 @@ This repo helps you to kickstart your Python project.
 - Github pages integration for Docs
 
 ### Python project
-- Python 3.7, 3.8, 3.9 supported
+- Python 3.7, 3.8 or 3.9!
 - Recommended project structure
 - Tests with `pytest` 
 - Linting with `flake8` 
@@ -24,7 +24,7 @@ This repo helps you to kickstart your Python project.
   - Latest release -> Production
   - Latest main branch -> Development
   - Any pull request -> Preview
-- Release-Changelog based on pull requests  
+- Release-changelog based on pull requests  
 - Regenerate docs on release
 - Publish docs to github pages  
 
