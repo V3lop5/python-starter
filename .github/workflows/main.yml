@@ -1,7 +1,9 @@
-name: Push
+name: CI/CD main
 
 on:
   push:
+    branches:
+      - main
   
 jobs:
   # Inspect the information that is accessible in each context
@@ -90,21 +92,24 @@ jobs:
           
       - name: Run tests
         run: |
-          pytest --cov=./ --cov-report=xml ./tests
+          pytest --cov=./ --cov-report=xml --junitxml="result.xml" ./tests
                 
             
       - name: Upload tests results
         uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: test-results
-          path: coverage.xml
+          path: |
+            coverage.xml
+            result.xml
           
     
-  uplaod_test_results:
+  uplaod_coverage_results:
     needs: test 
     runs-on: ubuntu-latest
-    name: "Upload test results @ main"
-    if: github.ref == 'refs/heads/main'
+    name: "Upload code coverage"
+    if: always()
     steps:
       - name: Download tests results
         uses: actions/download-artifact@v2
@@ -116,6 +121,25 @@ jobs:
         with:
           file: ./coverage.xml
           flags: unittests
+  
+  publish_test_results:
+    needs: test
+    runs-on: ubuntu-latest
+    name: "Publish unit test results"
+    if: always()
+    steps:
+      - name: Download tests results
+        uses: actions/download-artifact@v2
+        with:
+          name: test-results
+          
+      - name: Publish Unit Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        with:
+          files: result.xml
+          report_individual_runs: true
+          
+    
     
   # Test if project still runs on every os          
   test_build:
@@ -156,8 +180,7 @@ jobs:
   dev_deploy:
     needs: [test, lint, test_build] 
     runs-on: ubuntu-latest
-    name: "Dev deploy @ main"
-    if: github.ref == 'refs/heads/main'
+    name: "Dev deploy"
     steps:
       - name: Hello
         run: |
