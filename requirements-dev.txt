@@ -3,3 +3,4 @@
 
 # Dev dependencies for Bigfoot
 pytest
+pytest-cov
