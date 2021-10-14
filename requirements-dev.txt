@@ -3,3 +3,4 @@
 
 # Dev dependencies for package_name
 pytest
+pytest-cov
