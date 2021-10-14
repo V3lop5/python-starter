@@ -8,5 +8,5 @@ setup(name='Bigfoot',
       author='V3lop5',
       author_email='v3lop5@gmail.com',
       url='https://github.com/v3lop5',
-      packages=['bigfoot'],
+      packages=['counter'],
       )
