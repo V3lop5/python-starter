@@ -8,7 +8,6 @@ This repo helps you to kickstart your Python project.
 - Issue templates
 - Pull Request template
 - Release-Changelog template
-- Github pages integration for Docs
 
 ### Python project
 - Python 3.7, 3.8 or 3.9!
@@ -26,12 +25,11 @@ This repo helps you to kickstart your Python project.
   - Any pull request -> Preview
 - Release-changelog based on pull requests  
 - Regenerate docs on release
-- Publish docs to github pages  
-
-## Start YOUR python project with this template
-TODO
+- Publish docs to Readthedocs  
 
 ## Use this template
+1. Click on button [Use this template](https://github.com/V3lop5/python-starter/generate)
+2. Check the generated issue in the project and follow these steps.
 
 ### Workflow with git
 Rule #1: No Commits to main!
