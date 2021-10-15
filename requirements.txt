@@ -1,4 +1,4 @@
-# Requirements for Bigfoot
+# Requirements for Counter
 
 numpy
 flask==1.1.2
