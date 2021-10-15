@@ -120,7 +120,8 @@ jobs:
         uses: codecov/codecov-action@v2.1.0
         with:
           file: ./coverage.xml
-          flags: unittests
+          flags: pytest
+          fail_ci_if_error: true
   
   publish_test_results:
     needs: test
