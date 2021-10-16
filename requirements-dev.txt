@@ -1,7 +1,7 @@
-# Requirements for package_name
+# Requirements for Counter
 -r requirements.txt
 
-# Dev dependencies for package_name
-pytest
+# Dev dependencies for Counter
+pytest~=6.2.5
 pytest-cov
 codecov
