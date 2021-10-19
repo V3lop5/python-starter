@@ -48,6 +48,8 @@ jobs:
       
     
       - name: Cleanup & Setup
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           
           # Prepare variables
