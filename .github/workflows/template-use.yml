@@ -85,13 +85,13 @@ jobs:
             .github/FIRST_ISSUE.md \
             LICENSE
 
-       # Create first issue
-     - name: Create Issue
-       uses: imjohnbo/issue-bot@v3
-       with:
-         title: "Complete project setup"
-         body: ${{ env.ISSUE_BODY }}
-         close-previous: true
+        # Create first issue
+      - name: Create Issue
+        uses: imjohnbo/issue-bot@v3
+        with:
+          title: "Complete project setup"
+          body: ${{ env.ISSUE_BODY }}
+          close-previous: true
 
       # Commit modified files
       - name: Commit files
