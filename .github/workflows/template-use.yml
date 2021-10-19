@@ -75,8 +75,11 @@ jobs:
 
           # Load first issue body
           sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" .github/FIRST_ISSUE.md
+
           ISSUE_BODY=`cat .github/FIRST_ISSUE.md`
-          echo "ISSUE_BODY=$ISSUE_BODY" >> $GITHUB_ENV
+          echo "ISSUE_BODY<<EOF" >> $GITHUB_ENV
+          echo "$ISSUE_BODY" >> $GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV
 
           # Cleanup
           rm -rf \
