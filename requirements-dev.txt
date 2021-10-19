@@ -1,6 +1,7 @@
-# Requirements for Bigfoot
+# Requirements for Counter
 -r requirements.txt
 
-# Dev dependencies for Bigfoot
-pytest
+# Dev dependencies for Counter
+pytest~=6.2.5
 pytest-cov
+codecov

@@ -65,7 +65,7 @@ so do familiarize yourself with the following guidelines.
   * Comment on the existing issue if you want to work on it. 
   * Wait till it is assigned to you by [maintainers](#contacting-maintainers). 
   * Ensure that the issue not only describes a problem, but also describes a solution that had received a positive feedback. Propose a solution if there isn't any.
-* If you are going to submit your first PR in KotlinDL project:
+* If you are going to submit your first PR in this project:
   * Find tickets with the label ["good first issue"](https://github.com/V3lop5/python-starter/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22+no%3Aassignee) 
     which are not assigned to somebody.
   * Learn the [`examples`](https://github.com/V3lop5/python-starter/tree/main/examples) module, submit new interesting example or improve documentation for one of them.
