@@ -5,3 +5,5 @@
 pytest~=6.2.5
 pytest-cov
 codecov
+sphinx
+sphinx-rtd-theme
