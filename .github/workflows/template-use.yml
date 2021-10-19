@@ -73,11 +73,10 @@ jobs:
           # Move contents
           cp -R .github/template/* .
 
-          # Create first issue
+          # Load first issue body
           sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" .github/FIRST_ISSUE.md
-          title="Setup Repository"
-          body=`cat .github/FIRST_ISSUE.md`
-          gh issue create --assignee "@me" -t "$title" -b "$body"
+          ISSUE_BODY=`cat .github/FIRST_ISSUE.md`
+          echo "ISSUE_BODY=$ISSUE_BODY" >> $GITHUB_ENV
 
           # Cleanup
           rm -rf \
@@ -85,8 +84,15 @@ jobs:
             .github/workflows/template-use.yml \
             .github/FIRST_ISSUE.md \
             LICENSE
-     
-     
+
+       # Create first issue
+     - name: Create Issue
+       uses: imjohnbo/issue-bot@v3
+       with:
+         title: "Complete project setup"
+         body: ${{ env.ISSUE_BODY }}
+         close-previous: true
+
       # Commit modified files
       - name: Commit files
         run: |
