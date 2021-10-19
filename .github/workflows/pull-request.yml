@@ -107,7 +107,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     name: "Publish unit test results"
-    if: always()
+    if: ${{ always() && github.actor != 'dependabot[bot]' }}
     steps:
       - name: Download tests results
         uses: actions/download-artifact@v2
@@ -126,6 +126,7 @@ jobs:
     needs: [test, lint] 
     runs-on: ubuntu-latest
     name: "Preview deploy"
+    if: ${{ success() && github.actor != 'dependabot[bot]' }}
     steps:
       - name: Hello
         run: |
