@@ -116,10 +116,13 @@ jobs:
         with:
           name: test-results
           
+      - name: Check files
+        run: |
+          cat ./coverage.xml
+          
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2.1.0
         with:
-          file: ./coverage.xml
           flags: pytest
           fail_ci_if_error: true
   
