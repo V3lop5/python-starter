@@ -23,9 +23,9 @@ sys.path.insert(0, pathlib.Path(__file__).parents[2].resolve().as_posix())
 
 # -- Project information -----------------------------------------------------
 
-project = 'EnSysMod'
-copyright = '2021, FH Aachen'
-author = 'FH Aachen'
+project = 'Python Starter'
+copyright = '2021, V3lop5 & einfachMel'
+author = 'V3lop5 & einfachMel'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'

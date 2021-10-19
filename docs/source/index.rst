@@ -1,5 +1,5 @@
-Welcome to Counters's documentation!
-===================================
+Welcome to Python-Starter documentation!
+========================================
 
 **Counter is a Python programm, which simulates a counter.
 
