@@ -9,7 +9,7 @@ with open('README.md') as file:
     description = file.read()
 
 setuptools.setup(
-    name='Bigfoot',
+    name='Counter',
     version='1.0',
     author='V3lop5',
     author_email='v3lop5@gmail.com',
