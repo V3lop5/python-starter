@@ -9,14 +9,14 @@ with open('README.md') as file:
     description = file.read()
 
 setuptools.setup(
-    name='Counter',
+    name='%NAME%',
     version='1.0',
-    author='V3lop5',
-    author_email='v3lop5@gmail.com',
-    description='Python Starter Project',
+    author='%ACTOR%',
+    # author_email='',
+    description='Default description for %NAME%',
     long_description=description,
     long_description_content_type="text/markdown",
-    url='https://github.com/v3lop5',
+    url='https://github.com/%REPOSITORY%',
     include_package_data=True,
     packages=setuptools.find_packages(),
     install_requires=packages,

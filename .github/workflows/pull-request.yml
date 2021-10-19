@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.3.5
         
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -70,7 +70,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.3.5
         
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -107,7 +107,7 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     name: "Publish unit test results"
-    if: always()
+    if: ${{ always() && github.actor != 'dependabot[bot]' }}
     steps:
       - name: Download tests results
         uses: actions/download-artifact@v2
@@ -126,6 +126,7 @@ jobs:
     needs: [test, lint] 
     runs-on: ubuntu-latest
     name: "Preview deploy"
+    if: ${{ success() && github.actor != 'dependabot[bot]' }}
     steps:
       - name: Hello
         run: |

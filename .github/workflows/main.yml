@@ -42,7 +42,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.3.5
         
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -71,7 +71,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.3.5
         
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -111,15 +111,21 @@ jobs:
     name: "Upload code coverage"
     if: always()
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.5
+        
       - name: Download tests results
         uses: actions/download-artifact@v2
         with:
           name: test-results
           
+      - name: Check files
+        run: |
+          cat ./coverage.xml
+          
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2.1.0
         with:
-          file: ./coverage.xml
           flags: pytest
           fail_ci_if_error: true
   
@@ -154,7 +160,7 @@ jobs:
         py: ["3.7", "3.8", "3.9"]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v2.3.5
         
       - name: Setup Python
         uses: actions/setup-python@v2
