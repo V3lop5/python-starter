@@ -111,6 +111,9 @@ jobs:
     name: "Upload code coverage"
     if: always()
     steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.5
+        
       - name: Download tests results
         uses: actions/download-artifact@v2
         with:
