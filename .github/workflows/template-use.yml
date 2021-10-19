@@ -58,7 +58,7 @@ jobs:
           
           # Replace placeholders in the template files
           sed -i "s/%NAME%/$NAME/g" .github/template/*
-          sed -i "s/%ACTOR%/ACTOR/g" .github/template/*
+          sed -i "s/%ACTOR%/$ACTOR/g" .github/template/*
           sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" .github/template/*
           
           # Replace variables within example python project

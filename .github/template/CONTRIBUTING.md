@@ -77,7 +77,7 @@ so do familiarize yourself with the following guidelines.
    - You like [PyCharm](https://www.jetbrains.com/pycharm/)? See [this](https://www.jetbrains.com/help/pycharm/open-projects.html) guide.
    - You like [VSCode](https://code.visualstudio.com/)? See [this](https://code.visualstudio.com/docs/python/python-tutorial) guide.
 5. Time to code! Develop your changes
-   - Run main `python -m %name%`
+   - Run main `python -m %NAME%`
    - Run tests `pytest ./tests`
    - Run linting `flake8`
 7. Ready? Commit your changes
