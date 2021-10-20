@@ -83,7 +83,7 @@ jobs:
         with:
           fetch-depth: 0
           path: 'gh-pages'
-          branch: 'gh-pages'
+          ref: 'gh-pages'
 
       - name: Build documentation
         uses: ammaraskar/sphinx-action@0.4
