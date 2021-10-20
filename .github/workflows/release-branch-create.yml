@@ -54,6 +54,6 @@ jobs:
         with:
           destination_branch: "main"
           pr_title: "Release ${{ steps.get_version.outputs.VERSION }}"
-          pr_body: "Create new Release ${{ steps.get_version.outputs.VERSION }}"
+          pr_body: "Next Release ${{ steps.get_version.outputs.VERSION }} almost complete. Follow the guide in `CONTRIBUTING.md`!"
           pr_label: "release"
           github_token: ${{ secrets.GITHUB_TOKEN }}
