@@ -71,6 +71,9 @@ jobs:
           # Move contents
           cp -R .github/template/* .
 
+          # Update scripts
+          sed -i "s/counter/$SAFE_NAME/g" scripts/*
+
           # Update first issue body
           sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" .github/FIRST_ISSUE.md
 
