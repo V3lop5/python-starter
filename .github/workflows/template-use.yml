@@ -57,6 +57,7 @@ jobs:
           
           # Replace placeholders in the template files
           sed -i "s/%NAME%/$NAME/g" .github/template/*
+          sed -i "s/%SAFE_NAME%/$SAFE_NAME/g" .github/template/*
           sed -i "s/%ACTOR%/$ACTOR/g" .github/template/*
           sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" .github/template/*
           
