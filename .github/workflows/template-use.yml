@@ -42,14 +42,13 @@ jobs:
   cleanup:
     runs-on: ubuntu-latest
     if: github.event.repository.name != 'python-starter'
+    name: "Cleanup & Prepare repository"
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.4
-      
-    
+
       - name: Prepare files
         run: |
-          
           # Prepare variables
           NAME="${GITHUB_REPOSITORY##*/}"
           ACTOR=$(echo $GITHUB_ACTOR | tr '[:upper:]' '[:lower:]')
@@ -77,13 +76,11 @@ jobs:
           # Update first issue body
           sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" .github/FIRST_ISSUE.md
 
-
       - name: Create Issue
         uses: peter-evans/create-issue-from-file@v3
         with:
-          title: "Complete project setup"
+          title: "Complete repository setup"
           content-filepath: ./.github/FIRST_ISSUE.md
-
 
       - name: Remove template files
         run: |
@@ -93,19 +90,17 @@ jobs:
             .github/FIRST_ISSUE.md \
             LICENSE
 
-
       - name: Commit files
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git commit -m "Completed project setup"
 
-
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
           branch: main
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ github.token }}

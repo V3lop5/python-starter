@@ -88,13 +88,11 @@ jobs:
       - name: Install requirements
         run: |
           pip install --upgrade --upgrade-strategy eager -r requirements-dev.txt -e .
-            
-          
+
       - name: Run tests
         run: |
           pytest --cov=./ --cov-report=xml --junitxml="result.xml" ./tests
-                
-            
+
       - name: Upload tests results
         uses: actions/upload-artifact@v2
         if: always()
@@ -128,7 +126,8 @@ jobs:
         with:
           flags: pytest
           fail_ci_if_error: true
-  
+
+
   publish_test_results:
     needs: test
     runs-on: ubuntu-latest
@@ -152,7 +151,7 @@ jobs:
   test_build:
     needs: [test, lint]
     runs-on: ${{ matrix.os }}
-    name: Build with ${{ matrix.py }} @ ${{ matrix.os }}
+    name: Build Python ${{ matrix.py }} @ ${{ matrix.os }}
     strategy:
       fail-fast: true
       matrix:
@@ -187,7 +186,7 @@ jobs:
   dev_deploy:
     needs: [test, lint, test_build] 
     runs-on: ubuntu-latest
-    name: "Dev deploy"
+    name: "Deploy dev"
     steps:
       - name: Hello
         run: |
