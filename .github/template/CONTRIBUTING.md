@@ -111,7 +111,8 @@ so do familiarize yourself with the following guidelines.
 3. Checkout the Release-PR [here](https://github.com/%REPOSITORY%/pulls?q=is%3Apr+is%3Aopen+label%3Arelease).
 4. Merge PR if everything looks good to you.
 5. Wait CI/CD for creating your Release. If ready it will be shown [here](https://github.com/%REPOSITORY%/releases).
-6. 🎉 Done! 🎉
+6. Edit the release and click on button `+ Auto-generate release notes`.
+7. 🎉 Done! 🎉
 
 ## Contacting maintainers
 
