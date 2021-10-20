@@ -71,23 +71,41 @@ jobs:
   generate_docs:
     runs-on: ubuntu-latest
     needs: [ create_release ]
-    name: "Generate docs"
+    name: "Generate documentation"
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2.3.5
-      with:
-        fetch-depth: 0 # otherwise, you will failed to push refs to dest repo
+      - name: Checkout
+        uses: actions/checkout@v2.3.5
+        with:
+          fetch-depth: 0
 
-    - name: Build and Commit
-      uses: sphinx-notes/pages@1.0
-      with:
-        documentation_path: docs/source
+      - name: Checkout gh-pages
+        uses: actions/checkout@v2.3.5
+        with:
+          fetch-depth: 0
+          path: 'gh-pages'
+          branch: 'gh-pages'
 
-    - name: Push changes
-      uses: ad-m/github-push-action@v0.6.0
-      with:
-        github_token: ${{ github.token }}
-        branch: gh-pages
+      - name: Build documentation
+        uses: ammaraskar/sphinx-action@0.4
+        with:
+          docs-folder: "docs/source"
+
+      - name: Commit documentation changes
+        run: |
+          cp -r docs/source/_build/html/* gh-pages/
+          cd gh-pages
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Updated documentation" -a || true
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          branch: gh-pages
+          directory: gh-pages
+          github_token: ${{ github.token }}
+
 
   prod_deploy:
     needs: [ create_release ]
