@@ -7,8 +7,7 @@ changelog:
       - release
     authors:
       - dependabot[bot]
-      - github-actions
-      - actions-user
+      - github-actions[bot]
   categories:
   - title: Breaking Changes 🛠
     labels:
