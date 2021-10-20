@@ -50,14 +50,10 @@ jobs:
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/heads\/release\//}
 
       - name: Create Release PR
-        uses: peter-evans/create-pull-request@v3
+        uses: repo-sync/pull-request@v2
         with:
-          branch: ${{ github.HEAD_REF }}
-          title: "Release ${{ steps.get_version.outputs.VERSION }}"
-          body: |
-            Create new Release ${{ steps.get_version.outputs.VERSION }}
-
-            Feel free to merge this PR if everything is done and all tests passed.
-          labels: |
-            release
-
+          destination_branch: "main"
+          pr_title: "Release ${{ steps.get_version.outputs.VERSION }}"
+          pr_body: "Create new Release ${{ steps.get_version.outputs.VERSION }}"
+          pr_label: "release"
+          github_token: ${{ secrets.GITHUB_TOKEN }}

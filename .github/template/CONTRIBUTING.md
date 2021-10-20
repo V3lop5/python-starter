@@ -108,7 +108,7 @@ so do familiarize yourself with the following guidelines.
 0. This task is only for Maintainers!
 1. Merge all PRs into `main` that should be part of next release.
 2. Run `sh scripts/release.sh [major|minor|patch]` locally.
-3. Checkout the Release-PR [here](https://github.com/%REPOSITORY%/pulls?q=label%3Arelease).
+3. Checkout the Release-PR [here](https://github.com/%REPOSITORY%/pulls?q=is%3Apr+is%3Aopen+label%3Arelease).
 4. Merge PR if everything looks good to you.
 5. Wait CI/CD for creating your Release. If ready it will be shown [here](https://github.com/%REPOSITORY%/releases).
 6. 🎉 Done! 🎉
