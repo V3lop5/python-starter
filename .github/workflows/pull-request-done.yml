@@ -85,11 +85,6 @@ jobs:
           path: 'gh-pages'
           ref: 'gh-pages'
 
-      - name: Build documentation
-        uses: ammaraskar/sphinx-action@0.4
-        with:
-          docs-folder: "docs"
-
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
