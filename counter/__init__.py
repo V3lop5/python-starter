@@ -6,4 +6,4 @@ It allows someone to install %name% as package in other projects and use its fun
 from .core import Counter
 
 
-__version__ = "1.0.0"
+__version__ = "0.0.0"
