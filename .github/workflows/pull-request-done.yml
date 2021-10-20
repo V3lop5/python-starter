@@ -78,13 +78,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Checkout gh-pages
-        uses: actions/checkout@v2.3.5
-        with:
-          fetch-depth: 0
-          path: 'gh-pages'
-          ref: 'gh-pages'
-
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
