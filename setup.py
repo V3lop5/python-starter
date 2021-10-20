@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import setuptools
+import counter
 
 with open('requirements.txt') as file:
     packages = filter(lambda x: x != "" and x[0] != "#", file.readlines())
@@ -10,7 +11,7 @@ with open('README.md') as file:
 
 setuptools.setup(
     name='Counter',
-    version='1.0',
+    version=counter.__version__,
     author='V3lop5',
     author_email='v3lop5@gmail.com',
     description='Python Starter Project',
