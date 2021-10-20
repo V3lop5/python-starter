@@ -96,3 +96,6 @@ git checkout -B "release/$NEW_VERSION"
 git add .
 git commit -m "Bump release version $CURRENT_VERSION -> $NEW_VERSION"
 git push --set-upstream origin "release/$NEW_VERSION"
+
+# Switch back to main branch
+git checkout main
