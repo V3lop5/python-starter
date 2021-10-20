@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import setuptools
+import %NAME%
 
 with open('requirements.txt') as file:
     packages = filter(lambda x: x != "" and x[0] != "#", file.readlines())
@@ -10,7 +11,7 @@ with open('README.md') as file:
 
 setuptools.setup(
     name='%NAME%',
-    version='1.0',
+    version=%NAME%.__version__,
     author='%ACTOR%',
     # author_email='',
     description='Default description for %NAME%',

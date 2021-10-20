@@ -47,7 +47,8 @@ so do familiarize yourself with the following guidelines.
 
 ## PR workflow
 
-0. Contributor build the project locally and run all unit tests and integration tests with pytest `pytest ./test`. (If it's possible on contributor machine...) 
+0. Contributor build the project locally and run all unit tests and integration tests with pytest `sh scripts/test.sh`. 
+   (If it's possible on contributor machine...) 
 1. Contributor submits the PR if the local build is successful and tests are green.
 2. Reviewer marks the PR with the "Review" label at the start of the review process.
 3. Reviewer leaves the comments or marks the PR with the label "LGTM."
@@ -79,9 +80,9 @@ so do familiarize yourself with the following guidelines.
 
 This project is built with Python... I guess. 
 
-* Run `pip install --upgrade --upgrade-strategy eager -r requirements-dev.txt -e .` to setup your environment.
-* Run `pytest ./test` to test the project.
-* Run `flake8` to check linting.
+* Run `sh scripts/install.sh` to setup your environment.
+* Run `sh scripts/run.sh` to run the project.
+* Run `sh scripts/test.sh` to test the project.
    
 
 ## Contacting maintainers

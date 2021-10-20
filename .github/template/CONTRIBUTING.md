@@ -70,16 +70,16 @@ so do familiarize yourself with the following guidelines.
    - Navigate into project folder `cd %NAME%`
 2. Install all pre requirements for development
    - New to Python? Get Python [here](https://www.python.org/downloads/)!
-   - Create environment `pip install --upgrade --upgrade-strategy eager -r requirements-dev.txt -e .`
+   - Create environment `sh scripts/install.sh`
 3. Check if project is fine
-   - Run tests `pytest ./tests`
+   - Run tests `sh scripts/test.sh`
 4. Open the project in an IDE of your choice
    - You like [PyCharm](https://www.jetbrains.com/pycharm/)? See [this](https://www.jetbrains.com/help/pycharm/open-projects.html) guide.
    - You like [VSCode](https://code.visualstudio.com/)? See [this](https://code.visualstudio.com/docs/python/python-tutorial) guide.
 5. Time to code! Develop your changes
-   - Run main `python -m %NAME%`
-   - Run tests `pytest ./tests`
-   - Run linting `flake8`
+   - Run main `sh scripts/run.sh`
+   - Run tests `sh scripts/test.sh`
+   - Run linting `sh scripts/lint.sh`
 7. Ready? Commit your changes
    - Create a new Branch `git checkout -b <branch-name>` <br>The Branch should be named like `feature/user-guide` or `fix/background-color`.
    - Check changed files `git status`
@@ -102,6 +102,16 @@ so do familiarize yourself with the following guidelines.
 8. The TC writes the result (passed or not passed) to the PR checks at the bottom of the proposed PR.
 9. If it is possible, maintainers share the details of the failed build with the contributor.
 10. Maintainer merges the PR if all checks are successful and there is no conflict with the master branch.
+
+
+## Release workflow [Maintainer only]
+0. This task is only for Maintainers!
+1. Merge all PRs into `main` that should be part of next release.
+2. Run `sh scripts/release.sh [major|minor|patch]` locally.
+3. Checkout the Release-PR [here](https://github.com/%REPOSITORY%/pulls?q=label%3Arelease).
+4. Merge PR if everything looks good to you.
+5. Wait CI/CD for creating your Release. If ready it will be shown [here](https://github.com/%REPOSITORY%/releases).
+6. 🎉 Done! 🎉
 
 ## Contacting maintainers
 
