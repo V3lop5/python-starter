@@ -1,8 +1,9 @@
-name: CI/CD Pull Requests Close
+name: CI/CD Release Prepare
 
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches:
+      - release/*
   
 jobs:
   # Inspect the information that is accessible in each context
@@ -35,19 +36,10 @@ jobs:
         env:
           MATRIX_CONTEXT: ${{ toJSON(matrix) }}
         run: echo "$MATRIX_CONTEXT"
-
-  preview_delete:
-    runs-on: ubuntu-latest
-    name: "Preview delete"
-    steps:
-      - name: Hello
-        run: |
-          echo "Hello World!"
-            
-
-  create_release:
+     
+  # Create Pull Request
+  pull_request:
     runs-on: "ubuntu-latest"
-    if: github.event.pull_request.merged == true && startsWith( github.head_ref, 'release/')
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -57,21 +49,15 @@ jobs:
         id: get_version
         run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/heads\/release\//}
 
-      - name: Create Release
-        uses: marvinpinto/action-automatic-releases@latest
+      - name: Create Release PR
+        uses: peter-evans/create-pull-request@v3
         with:
-          repo_token: "${{ github.token }}"
-          automatic_release_tag: "v${{ steps.get_version.outputs.VERSION }}"
-          prerelease: false
-          title: "Release v${{ steps.get_version.outputs.VERSION }}"
-          # files: |
+          branch: ${{ github.HEAD_REF }}
+          title: "Release ${{ steps.get_version.outputs.VERSION }}"
+          body: |
+            Create new Release ${{ steps.get_version.outputs.VERSION }}
 
+            Feel free to merge this PR if everything is done and all tests passed.
+          labels: |
+            release
 
-  prod_deploy:
-    needs: [ create_release ]
-    runs-on: ubuntu-latest
-    name: "Prod deploy"
-    steps:
-      - name: Hello
-        run: |
-          echo "Hello World!"
