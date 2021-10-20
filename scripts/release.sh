@@ -95,4 +95,4 @@ git pull origin main
 git checkout -B "release/$NEW_VERSION"
 git add .
 git commit -m "Bump release version $CURRENT_VERSION -> $NEW_VERSION"
-git push
+git push --set-upstream origin "release/$NEW_VERSION"
