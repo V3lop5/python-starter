@@ -4,7 +4,6 @@ import logging
 # noinspection PyUnresolvedReferences
 from counter import model
 from counter.database.base_class import Base
-
 from counter.database.session import engine, SessionLocal
 
 logging.basicConfig(level=logging.INFO)
