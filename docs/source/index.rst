@@ -22,6 +22,7 @@ Indices and tables
 .. toctree::
 
    usage
+   endpoints
    counterDoc
    api
    :maxdepth: 2
