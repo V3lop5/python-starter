@@ -1,6 +1,12 @@
 # Requirements for Counter
 
+fastapi
+sqlalchemy
+uvicorn
+pydantic
+pydantic[dotenv]
+
 numpy
-flask==2.0.2
+
 pytest~=6.2.5
 MarkupSafe~=2.0.1

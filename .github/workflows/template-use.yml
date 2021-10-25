@@ -63,7 +63,12 @@ jobs:
           
           # Replace variables within example python project
           find counter -type f -exec sed -i "s/%NAME%/$NAME/g" {} +
+          find counter -type f -exec sed -i "s/counter/$SAFE_NAME/g" {} +
           find counter -type f -exec sed -i "s/V3lop5/$ACTOR/g" {} +
+
+          # Replace variables within example python tests
+          find tests -type f -exec sed -i "s/counter/$SAFE_NAME/g" {} +
+          find tests -type f -exec sed -i "s/Counter/$SAFE_NAME/g" {} +
           
           # Rename project folder
           mv counter $SAFE_NAME
