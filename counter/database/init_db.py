@@ -2,7 +2,7 @@ import logging
 
 # Import all models
 # noinspection PyUnresolvedReferences
-from counter import model
+from counter import model  # noqa: E401
 from counter.database.base_class import Base
 from counter.database.session import engine, SessionLocal
 
