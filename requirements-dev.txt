@@ -7,3 +7,4 @@ pytest-cov
 codecov
 sphinx
 sphinx-rtd-theme
+flake8
