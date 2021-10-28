@@ -47,6 +47,14 @@ extensions = [
     'sphinxcontrib.openapi'
 ]
 
+# configure for edit_on_github-Button
+html_context = {
+  'display_github': True,
+  'github_user': 'V3lop5',
+  'github_repo': 'python-starter',
+  'github_version': 'main/docs/source/',
+}
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -66,4 +74,20 @@ html_theme = 'sphinx_rtd_theme'
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
+html_static_path = []
+
+
+# -- Automattically generate Rest-Endpoints in Sphinx
+from fastapi.openapi.utils import get_openapi
+from counter.app import app
+import json
+
+
+with open('./specs/openapi.json', 'w') as f:
+    json.dump(get_openapi(
+        title=app.title,
+        version=app.version,
+        openapi_version=app.openapi_version,
+        description=app.description,
+        routes=app.routes,
+    ), f)

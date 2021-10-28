@@ -7,4 +7,4 @@ Um die Endpunkte zu testen, kann http://localhost:8080/docs aufgerufen werden.
 
 Beschreibung
 ------------
-.. openapi:: specs/openapi.yml
+.. openapi:: specs/openapi.json
