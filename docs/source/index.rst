@@ -24,5 +24,6 @@ Indices and tables
    usage
    counterDoc
    api
+   projectStructure
    :maxdepth: 2
    :caption: Contents:
