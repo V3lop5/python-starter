@@ -8,3 +8,4 @@ codecov
 sphinx
 sphinx-rtd-theme
 sphinxcontrib-openapi
+flake8

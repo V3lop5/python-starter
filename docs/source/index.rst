@@ -25,5 +25,6 @@ Indices and tables
    endpoints
    counterDoc
    api
+   projectStructure
    :maxdepth: 2
    :caption: Contents:

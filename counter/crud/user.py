@@ -1,8 +1,8 @@
-from typing import Any, Dict, Optional, Union
+from typing import Optional
+
 from sqlalchemy.orm import Session
 
 from counter.crud.base import CRUDBase
-
 from counter.model import User
 from counter.schemas import UserCreate, UserUpdate
 
