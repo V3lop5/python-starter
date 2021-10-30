@@ -2,6 +2,7 @@ from typing import Optional
 
 from sqlalchemy.orm import Session
 
+from counter.core import security
 from counter.crud.base import CRUDBase
 from counter.model import User
 from counter.schemas import UserCreate, UserUpdate
@@ -15,8 +16,7 @@ class CRUDUser(CRUDBase[User, UserCreate, UserUpdate]):
     def create(self, db: Session, *, user: UserCreate) -> User:
         db_obj = User(
             username=user.username,
-            # TODO hash password
-            hashed_password=user.password
+            hashed_password=security.get_password_hash(user.password)
         )
         db.add(db_obj)
         db.commit()
@@ -27,7 +27,7 @@ class CRUDUser(CRUDBase[User, UserCreate, UserUpdate]):
         user = self.get_by_username(db, username=username)
         if not user:
             return None
-        if not password == password:
+        if not security.verify_password(plain_password=password, hashed_password=user.hashed_password):
             return None
         return user
 
