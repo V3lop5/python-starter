@@ -1,7 +1,7 @@
 Welcome to Python-Starter documentation!
 ========================================
 
-**Counter is a Python programm, which simulates a counter.
+**Counter is a Python programm, which simulates a counter.**
 
 .. note::
 
@@ -20,11 +20,11 @@ Indices and tables
 
 
 .. toctree::
+   :maxdepth: 2
+   :caption: Contents:
 
    usage
    endpoints
-   counterDoc
+   modelUser
    api
    projectStructure
-   :maxdepth: 2
-   :caption: Contents:

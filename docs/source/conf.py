@@ -6,10 +6,17 @@
 
 # -- Path setup --------------------------------------------------------------
 
+import json
 # If extensions (or modules to document with autodoc) are in another directory,
-# add these directories to sys.path here. 
+# add these directories to sys.path here.
+import os
 import pathlib
 import sys
+
+from fastapi.openapi.utils import get_openapi
+
+from counter.app import app
+
 sys.path.insert(0, pathlib.Path(__file__).parents[2].resolve().as_posix())
 
 # If the directory is relative to the
@@ -17,8 +24,6 @@ sys.path.insert(0, pathlib.Path(__file__).parents[2].resolve().as_posix())
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
-
 
 
 # -- Project information -----------------------------------------------------
@@ -29,7 +34,6 @@ author = 'V3lop5 & einfachMel'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -49,10 +53,10 @@ extensions = [
 
 # configure for edit_on_github-Button
 html_context = {
-  'display_github': True,
-  'github_user': 'V3lop5',
-  'github_repo': 'python-starter',
-  'github_version': 'main/docs/source/',
+    'display_github': True,
+    'github_user': 'V3lop5',
+    'github_repo': 'python-starter',
+    'github_version': 'main/docs/source/',
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -62,7 +66,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -76,14 +79,11 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = []
 
-
-# -- Automattically generate Rest-Endpoints in Sphinx
-from fastapi.openapi.utils import get_openapi
-from counter.app import app
-import json
-
-
-with open('./specs/openapi.json', 'w') as f:
+# -- Automatically generate Rest-Endpoints in Sphinx
+generated_dir = './generated'
+if not os.path.exists(generated_dir):
+    os.makedirs(generated_dir)
+with open(f"{generated_dir}/openapi.json", 'w') as f:
     json.dump(get_openapi(
         title=app.title,
         version=app.version,

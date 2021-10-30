@@ -1,10 +1,10 @@
-Endpunkte
-=====
+Endpoints of REST-API
+=====================
 
-Um die Endpunkte zu testen, kann http://localhost:8080/docs aufgerufen werden.
+You can test the endpoints by running this app locally and visit http://localhost:8080/docs.
 
-.. _beschreibung:
+.. _description:
 
-Beschreibung
+Description
 ------------
-.. openapi:: specs/openapi.json
+.. openapi:: generated/openapi.json
