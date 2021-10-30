@@ -10,6 +10,7 @@
 # add these directories to sys.path here. 
 import pathlib
 import sys
+
 sys.path.insert(0, pathlib.Path(__file__).parents[2].resolve().as_posix())
 
 # If the directory is relative to the
@@ -17,8 +18,6 @@ sys.path.insert(0, pathlib.Path(__file__).parents[2].resolve().as_posix())
 # import os
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
-
-
 
 
 # -- Project information -----------------------------------------------------
@@ -29,7 +28,6 @@ author = 'V3lop5 & einfachMel'
 
 # The full version, including alpha/beta/rc tags
 release = '0.1'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -53,7 +51,6 @@ templates_path = ['_templates']
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
-
 
 # -- Options for HTML output -------------------------------------------------
 

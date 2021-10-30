@@ -2,8 +2,8 @@ from fastapi import status
 from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
-from tests.utils.utils import random_lower_string
 from counter import crud
+from tests.utils.utils import random_lower_string
 
 
 def get_register_payload():
