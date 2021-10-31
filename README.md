@@ -1,4 +1,10 @@
 # Python Starter Repo
+[![CI/CD main](https://github.com/V3lop5/python-starter/actions/workflows/main.yml/badge.svg)](https://github.com/V3lop5/python-starter/actions/workflows/main.yml)
+[![Codecov](https://codecov.io/gh/v3lop5/python-starter/branch/main/graph/badge.svg)](https://codecov.io/gh/v3lop5/python-starter/branch/main)
+[![GitHub license](https://img.shields.io/github/license/v3lop5/python-starter.svg)](https://github.com/v3lop5/python-starter/blob/main/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/v3lop5/python-starter.svg)](https://github.com/v3lop5/python-starter/releases/)
+
+
 This repo helps you to kickstart your Python project. 
 
 ## Features

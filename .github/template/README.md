@@ -1,4 +1,9 @@
 # %NAME%
+[![CI/CD main](https://github.com/%REPOSITORY%/actions/workflows/main.yml/badge.svg)](https://github.com/%REPOSITORY%/actions/workflows/main.yml)
+[![Codecov](https://codecov.io/gh/%REPOSITORY%/branch/main/graph/badge.svg)](https://codecov.io/gh/%REPOSITORY%/branch/main)
+[![GitHub license](https://img.shields.io/github/license/%REPOSITORY%.svg)](https://github.com/%REPOSITORY%/blob/main/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/%REPOSITORY%.svg)](https://github.com/%REPOSITORY%/releases/)
+
 You never found an awesome project like this before!
 
 ## Installation
