@@ -64,12 +64,18 @@ jobs:
           # Replace variables within example python project
           find counter -type f -exec sed -i "s/%NAME%/$NAME/g" {} +
           find counter -type f -exec sed -i "s/V3lop5/$ACTOR/g" {} +
-          
+
           # Rename project folder
           mv counter $SAFE_NAME
           
           # Move contents
           cp -R .github/template/* .
+
+          # Update github workflows
+          sed -i "s/counter/$SAFE_NAME/g" .github/workflows/*
+
+          # Update tests
+          sed -i "s/counter/$SAFE_NAME/g" tests/*
 
           # Update scripts
           sed -i "s/counter/$SAFE_NAME/g" scripts/*
