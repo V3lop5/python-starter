@@ -60,7 +60,8 @@ jobs:
           sed -i "s/%SAFE_NAME%/$SAFE_NAME/g" .github/template/*
           sed -i "s/%ACTOR%/$ACTOR/g" .github/template/*
           sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" .github/template/*
-          
+          sed -i "s/counter/$SAFE_NAME/g" .github/template/*
+
           # Replace variables within example python project
           find counter -type f -exec sed -i "s/%NAME%/$NAME/g" {} +
           find counter -type f -exec sed -i "s/counter/$SAFE_NAME/g" {} +
