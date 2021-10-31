@@ -22,7 +22,7 @@ def test_create_user_twice(db: Session) -> None:
     assert hasattr(user_one, "hashed_password")
 
     try:
-        user_two = crud.user.create(db, user=user_in)
+        crud.user.create(db, user=user_in)
     except IntegrityError as err:
         assert "username" in err.args[0]
         return

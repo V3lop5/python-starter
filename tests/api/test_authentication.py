@@ -3,10 +3,6 @@ from fastapi.testclient import TestClient
 from sqlalchemy.orm import Session
 
 from counter import crud
-from counter.api import deps
-from counter.database import init_db
-from counter.database.base_class import Base
-from counter.database.session import engine
 from tests.utils.utils import random_lower_string
 
 
