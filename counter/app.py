@@ -8,6 +8,9 @@ from counter.database import init_db
 app = FastAPI(title=settings.SERVER_NAME)
 app.include_router(api_router)
 
+
 # Initialize database and create models
-init_db.check_connection()
-init_db.create_all()
+@app.on_event("startup")
+def init_database():
+    init_db.check_connection()
+    init_db.create_all()

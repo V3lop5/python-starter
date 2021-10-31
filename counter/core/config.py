@@ -1,3 +1,4 @@
+import pathlib
 import secrets
 from typing import Optional, Dict, Any
 
@@ -41,7 +42,8 @@ class Settings(BaseSettings):
                 path=f"/{values.get('POSTGRES_DB') or ''}",
             )
 
-        return "sqlite:///./local.db"
+        config_folder = pathlib.Path(__file__).parent.resolve()
+        return f"sqlite:///{config_folder}/../local.db"
 
     class Config:
         case_sensitive = True
