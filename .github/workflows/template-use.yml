@@ -56,11 +56,11 @@ jobs:
           SAFE_ACTOR=$(echo $ACTOR | sed 's/[^a-zA-Z0-9]//g' | tr '[:upper:]' '[:lower:]')
           
           # Replace placeholders in the template files
-          sed -i "s/%NAME%/$NAME/g" .github/template/*
-          sed -i "s/%SAFE_NAME%/$SAFE_NAME/g" .github/template/*
-          sed -i "s/%ACTOR%/$ACTOR/g" .github/template/*
-          sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" .github/template/*
-          sed -i "s/counter/$SAFE_NAME/g" .github/template/*
+          find .github/template/ -type f -exec sed -i "s/%NAME%/$NAME/g" {} +
+          find .github/template/ -type f -exec sed -i "s/%SAFE_NAME%/$SAFE_NAME/g" {} +
+          find .github/template/ -type f -exec sed -i "s/%ACTOR%/$ACTOR/g" {} +
+          find .github/template/ -type f -exec sed -i "s/%REPOSITORY%/${GITHUB_REPOSITORY/\//\\/}/g" {} +
+          find .github/template/ -type f -exec sed -i "s/counter/$SAFE_NAME/g" {} +
 
           # Replace variables within example python project
           find counter -type f -exec sed -i "s/%NAME%/$NAME/g" {} +
@@ -77,8 +77,8 @@ jobs:
           sed -i "s/counter/$SAFE_NAME/g" .github/workflows/*
 
           # Update tests
-          sed -i "s/counter/$SAFE_NAME/g" tests/*
-          sed -i "s/Counter/$SAFE_NAME/g" tests/*
+          find tests -type f -exec sed -i "s/counter/$SAFE_NAME/g" {} +
+          find tests -type f -exec sed -i "s/Counter/$SAFE_NAME/g" {} +
 
           # Update scripts
           sed -i "s/counter/$SAFE_NAME/g" scripts/*
