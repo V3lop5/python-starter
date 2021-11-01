@@ -141,3 +141,6 @@ cython_debug/
 # IDE
 .idea/
 .vscode/
+
+# Database
+**/local.db
