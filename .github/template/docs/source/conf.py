@@ -56,7 +56,7 @@ extensions = [
 html_context = {
     'display_github': True,
     'github_user': '%ACTOR%',
-    'github_repo': '%SAFE_NAME%',
+    'github_repo': '%NAME%',
     'github_version': 'main/docs/source/',
 }
 
