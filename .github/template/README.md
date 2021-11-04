@@ -10,12 +10,12 @@ You never found an awesome project like this before!
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install %NAME%.
 
 ````bash
-pip install %NAME%
+pip install %SAFE_NAME%
 ````
 
 ## Usage
 ````python
-import %NAME%
+import %SAFE_NAME%
 ````
 
 ## Contributing

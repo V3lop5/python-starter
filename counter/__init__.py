@@ -1,5 +1,5 @@
 """
-This is the init file of project %name%.
+This is the init file of project %NAME%.
 
 It allows someone to install %name% as package in other projects and use its functions.
 """

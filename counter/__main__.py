@@ -1,5 +1,5 @@
 """
-This is the main file of project %name%.
+This is the main file of project %NAME%.
 
 It is invoked when someone runs python like:
     python -m %SAFE_NAME%
