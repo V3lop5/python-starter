@@ -2,7 +2,7 @@
 This is the main file of project %name%.
 
 It is invoked when someone runs python like:
-    python -m %name%
+    python -m %SAFE_NAME%
 """
 import uvicorn
 
