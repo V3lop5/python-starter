@@ -12,7 +12,3 @@ python-multipart
 bcrypt
 
 numpy
-
-pytest~=6.2.5
-MarkupSafe~=2.0.1
-setuptools~=58.4.0

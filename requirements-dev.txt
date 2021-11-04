@@ -1,7 +1,7 @@
 # Requirements for Counter
 -r requirements.txt
 
-# Dev dependencies for Counter
+# Dev requirements for Counter
 pytest~=6.2.5
 pytest-cov
 codecov
@@ -9,3 +9,6 @@ sphinx
 sphinx-rtd-theme
 sphinxcontrib-openapi
 flake8
+
+MarkupSafe~=2.0.1
+setuptools~=58.4.0
