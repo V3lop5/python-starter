@@ -45,7 +45,7 @@ jobs:
     name: "Cleanup & Prepare repository"
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v3.0.0
 
       - name: Prepare files
         run: |
@@ -127,7 +127,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v3.0.0
 
       - name: Prepare files
         run: |
