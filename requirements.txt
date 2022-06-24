@@ -1,7 +1,7 @@
 # Requirements for Counter
 
 fastapi~=0.70.0
-sqlalchemy~=1.4.27
+sqlalchemy~=1.4.39
 uvicorn~=0.15.0
 pydantic~=1.8.2
 pydantic[dotenv]
