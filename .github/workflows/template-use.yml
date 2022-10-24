@@ -51,10 +51,16 @@ jobs:
         run: |
           # Prepare variables
           NAME="${GITHUB_REPOSITORY##*/}"
-          ACTOR=$(echo ${GITHUB_REPOSITORY%%*/} | tr '[:upper:]' '[:lower:]')
+          ACTOR="${{ github.repository_owner }}"
           SAFE_NAME=$(echo $NAME | sed 's/[^a-zA-Z0-9]//g' | tr '[:upper:]' '[:lower:]')
           SAFE_ACTOR=$(echo $ACTOR | sed 's/[^a-zA-Z0-9]//g' | tr '[:upper:]' '[:lower:]')
-          
+
+          # Print variables to console
+          echo "NAME: $NAME"
+          echo "ACTOR: $ACTOR"
+          echo "SAFE_NAME: $SAFE_NAME"
+          echo "SAFE_ACTOR: $SAFE_ACTOR"
+
           # Replace placeholders in the template files
           find .github/template/ -type f -exec sed -i "s/%NAME%/$NAME/g" {} +
           find .github/template/ -type f -exec sed -i "s/%SAFE_NAME%/$SAFE_NAME/g" {} +
