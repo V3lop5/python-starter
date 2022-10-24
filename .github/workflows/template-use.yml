@@ -51,7 +51,7 @@ jobs:
         run: |
           # Prepare variables
           NAME="${GITHUB_REPOSITORY##*/}"
-          ACTOR=$(echo ${GITHUB_REPOSITORY%%*/} | tr '[:upper:]' '[:lower:]')
+          ACTOR="${{ github.repository_owner }}"
           SAFE_NAME=$(echo $NAME | sed 's/[^a-zA-Z0-9]//g' | tr '[:upper:]' '[:lower:]')
           SAFE_ACTOR=$(echo $ACTOR | sed 's/[^a-zA-Z0-9]//g' | tr '[:upper:]' '[:lower:]')
           
