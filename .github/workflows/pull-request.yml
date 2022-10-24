@@ -142,9 +142,8 @@ jobs:
       - name: Publish Unit Test Results
         uses: EnricoMi/publish-unit-test-result-action@v2
         with:
-          files: result.xml
-          report_individual_runs: true  
-          comment_mode: "create new"
+          junit_files: result.xml
+          report_individual_runs: true
         
         
   preview_deploy:
